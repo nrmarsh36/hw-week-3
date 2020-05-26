@@ -1,17 +1,6 @@
 
-//   for (var i = 8; i >= 8 && i <= 128; i++){
-//     var char = Math.floor(Math.random() * values.length + 1)
-//     console.log
-//   }
-//   return newPass
-// }
-
-
-// Assignment Code
-// var card = document.querySelector(".card");
 var generateBtn = document.querySelector("#generate");
 var showPass = document.getElementById("password");
-// var newPass= "";
 var valuesLow = arrayFromLowToHigh(97, 122);
 var valuesUp = arrayFromLowToHigh(65, 90);
 var valuesNum = arrayFromLowToHigh(48, 57);
@@ -35,10 +24,9 @@ var passType = prompt('Choose one or mote of the following criteria for your pas
 generateBtn.addEventListener("click", e => {
   e.preventDefault()
   generatePassword = writePassword(passLength, valuesLow, valuesNum, valuesUp, valuesSpec)
-  showPass.innerText = password;
+  showPass.innerText = generatePassword
 })
 
-generateBtn.addEventListener('click', writePassword);
 
 function writePassword(passLength, valuesLow, valuesNum, valuesUp, valuesSpec) {
   let charCodes = valuesLow;
@@ -63,42 +51,3 @@ function arrayFromLowToHigh(low, high) {
   return array;
 }
 
-
-
-// if (passType === "lowercase") {
-//   newPass = valuesLow;
-// }
-// if (passType === "uppercase"){
-//   newPass = valuesUp;
-// }
-// if (passType === "numeric"){
-//   newPass = valuesNum;
-// }
-// if (passType === "special characters"){
-//   newPass = valuesSpec;
-// }
-
-
-
-  // function () {
-  //   for (var i = 0; i <= passLength; i++) {
-  //     var newPass = charCodes(Math.floor(Math.random() * passLength));
-  //   }
-  //   document.getElementById("#password").value = password;
-  // }  
-  // return newPass
-
-
-
-
-// Write password to the #password input
-// function writePassword() {
-//   var password = generatePassword();
-//   var passwordText = document.querySelector("#password");
-
-//   passwordText.value = password;
-
-// }
-
-// Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
