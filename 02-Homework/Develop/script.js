@@ -11,8 +11,10 @@ var valuesSpec = arrayFromLowToHigh(33, 47)
 
 var passLength = prompt("Choose a length for your password between 8 and 128 character. Numeric characters only, please.");
   console.log(passLength)
-var passType = prompt('Choose one or mote of the following criteria for your password: "lowercase", "uppercase", "numeric", "special characters". Please type your selection(s) and separate them using comas.');
+var passType = prompt('Choose one or mote of the following criteria for your password (lowercase will be included by default): "uppercase", "numeric", "special characters". Please type your selection(s) and separate them using comas.');
   console.log(passType)
+
+  
 
   var passLength = parseInt(passLength);
     console.log(passLength);
@@ -21,8 +23,8 @@ var passType = prompt('Choose one or mote of the following criteria for your pas
 
 //cite https://www.youtube.com/watch?v=9sT03jEwcaw for reference 
 
-generateBtn.addEventListener("click", e => {
-  e.preventDefault()
+generateBtn.addEventListener("click", function(event) {
+  event.preventDefault()
   generatePassword = writePassword(passLength, valuesLow, valuesNum, valuesUp, valuesSpec)
   showPass.innerText = generatePassword
 })
@@ -30,6 +32,11 @@ generateBtn.addEventListener("click", e => {
 
 function writePassword(passLength, valuesLow, valuesNum, valuesUp, valuesSpec) {
   let charCodes = valuesLow;
+  passType = passType.split(",", "");
+  return passType
+
+  //array, string, split
+
   if (passType === "uppercase") charCodes = charCodes.concat(valuesUp);
   if (passType === "numeric") charCodes = charCodes.concat(valuesNum);
   if (passType === "special characters") charCodes = charCodes.concat(valuesSpec);
@@ -41,6 +48,11 @@ function writePassword(passLength, valuesLow, valuesNum, valuesUp, valuesSpec) {
   }
   return generatePassword.join('');
 }
+
+// function split() {
+//   var passType = passType.split(',', '');
+//   split();
+// }
 
 
 function arrayFromLowToHigh(low, high) {
